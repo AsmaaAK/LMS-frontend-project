@@ -25,8 +25,14 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/dashboard'
-  }
+    redirect: '/login'
+  },
+  {
+  path: '/admin/users',
+  name: 'UserManagement',
+  component: () => import('../components/admin/UserManagement.vue'),
+  meta: { requiresAuth: true, requiresRole: 'admin' }
+}
 ];
 
 const router = createRouter({
