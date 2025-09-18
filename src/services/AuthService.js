@@ -1,21 +1,51 @@
-import api from './api';
+// src/services/AuthService.js
+import apiClient from './api';
 
+// خدمة المصادقة فقط
 const AuthService = {
-
-  login(credentials) {
-    return api.post('/api/login', credentials);
+  async login(credentials) {
+    try {
+      // لا حاجة لطلب CSRF منفصل هنا لأن interceptor سيتكفل به
+      const response = await apiClient.post('/api/login', credentials);
+      return response;
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
+    }
   },
 
-
-  register(userData) {
-    return api.post('/api/register', userData);
+  async register(userData) {
+    try {
+      // لا حاجة لطلب CSRF منفصل هنا لأن interceptor سيتكفل به
+      const response = await apiClient.post('/api/register', userData);
+      return response;
+    } catch (error) {
+      console.error('Register error:', error);
+      throw error;
+    }
   },
 
-  // getUser() {
-  //   return api.post("/api/user")
-  // }
+  async logout() {
+    try {
+      const response = await apiClient.post('/api/logout');
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('user');
+      return response;
+    } catch (error) {
+      console.error('Logout error:', error);
+      throw error;
+    }
+  },
 
-
+  async getUser() {
+    try {
+      const response = await apiClient.get('/api/user');
+      return response;
+    } catch (error) {
+      console.error('Get user error:', error);
+      throw error;
+    }
+  }
 };
 
 export default AuthService;
