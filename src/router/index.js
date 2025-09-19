@@ -1,39 +1,33 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Login from '../components/Login.vue';
-import Dashboard from '../components/Dashboard.vue';
-import Signup from '../components/Signup.vue'; // أضف هذا الاستيراد
 
+import { createRouter, createWebHistory } from 'vue-router'
+import Login from '@/views/auth/Login.vue'
+import Signup from '@/views/auth/Signup.vue'
+import Dashboard from '@/views/Dashboard.vue'
+import AdminUsers from '@/views/admin/Users.vue'; 
 
 const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: Login,
-    meta: { requiresAuth: false }
+    component: Login
   },
-   {
+  {
     path: '/signup',
     name: 'Signup',
-    component: Signup, // أضف هذا المسار
-    meta: { requiresAuth: false }
+    component: Signup
   },
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: Dashboard,
-    meta: { requiresAuth: true }
+    component: Dashboard
   },
   {
-    path: '/',
-    redirect: '/login'
-  },
-  {
-  path: '/admin/users',
-  name: 'UserManagement',
-  component: () => import('../components/admin/UserManagement.vue'),
-  meta: { requiresAuth: true, requiresRole: 'admin' }
-}
-];
+    path: '/admin/users',
+    name: 'AdminUsers',
+    component: AdminUsers,
+    meta: { requiresAuth: true, requiresRole: 'admin' }
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(),
@@ -46,6 +40,21 @@ router.beforeEach((to, from, next) => {
   
   if (to.meta.requiresAuth && !isAuthenticated) {
     next('/login');
+  } else if (to.name === 'Login' && isAuthenticated) {
+    next('/dashboard');
+  } else {
+    next();
+  }
+});
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = !!localStorage.getItem('access_token');
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  const userRoles = user.roles || [];
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next('/login');
+  } else if (to.meta.requiresRole && !userRoles.some(role => role.name === to.meta.requiresRole)) {
+    next('/dashboard');
   } else if (to.name === 'Login' && isAuthenticated) {
     next('/dashboard');
   } else {

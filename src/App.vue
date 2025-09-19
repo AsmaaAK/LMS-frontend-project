@@ -1,7 +1,15 @@
 <template>
-  <div :class="{'dark': isDarkMode}">
-    <div class="bg-white dark:bg-gray-900 min-h-screen">
-      <router-view />
+  <div>
+    <router-view />
+  
+    <!-- للتصحيح فقط: عرض المسارات المتاحة -->
+    <div v-if="false" class="debug-routes">
+      <h3>المسارات المتاحة:</h3>
+      <ul>
+        <li v-for="route in $router.getRoutes()" :key="route.path">
+           {{ route.path }} - {{ route.name }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>

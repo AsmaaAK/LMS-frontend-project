@@ -9,9 +9,14 @@ const AuthService = {
       const response = await apiClient.post('/api/login', credentials);
       return response;
     } catch (error) {
-      console.error('Login error:', error);
-      throw error;
+      if (error.response?.status === 422) {
+      // إعادة Error مع رسائل التحقق
+      const validationErrors = error.response.data.errors;
+      const errorMessage = Object.values(validationErrors).flat().join(', ');
+      throw new Error(errorMessage);
     }
+    throw error;
+  }
   },
 
   async register(userData) {
