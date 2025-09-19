@@ -2,6 +2,8 @@
 import apiClient from './api';
 import AuthService from './AuthService';
 import UserService from './UserService';
+import CourseService from './CourseService';
+
 
 // تصدير الخدمات ككائن واحد
 export {
@@ -14,5 +16,6 @@ export {
 export default {
   api: apiClient,
   auth: AuthService,
-  user: UserService
+  user: UserService,
+  user: CourseService
 };
