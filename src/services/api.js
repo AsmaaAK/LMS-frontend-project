@@ -1,52 +1,46 @@
-// src/services/api.js
-import axios from 'axios';
+import axios from 'axios'
+import { API_CONFIG } from '@/config/api'
 
-// إنشاء instance من axios مع الإعدادات الأساسية فقط
+// إعداد axios base URL
+const API_BASE_URL = API_CONFIG.BASE_URL
+
+// إنشاء instance من axios مع الإعدادات الأساسية
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8000',
-  withCredentials: true,
+  baseURL: API_BASE_URL,
+  withCredentials: true, // إرسال cookies مع الطلبات للـ CSRF
   headers: {
-    'Accept': 'application/json',
     'Content-Type': 'application/json',
+    'Accept': 'application/json'
   }
-});
+})
 
-// إضافة interceptors للتعامل مع CSRF والأخطاء
+// إضافة interceptor لإضافة token للمطالبات
 apiClient.interceptors.request.use(
-  async (config) => {
-    // إذا كان الطلب ليس للحصول على CSRF cookie نفسه
-    if (!config.url.includes('sanctum/csrf-cookie')) {
-      // تأكد من أن لدينا CSRF cookie أولاً
-      await axios.get('http://localhost:8000/sanctum/csrf-cookie', {
-        withCredentials: true
-      });
-    }
-    
-    // إضافة token إذا موجود
-    const token = localStorage.getItem('access_token');
+  (config) => {
+    const token = localStorage.getItem('access_token')
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Authorization = `Bearer ${token}`
     }
-    
-    return config;
+    return config
   },
   (error) => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
-// interceptor للتعامل مع الأخطاء
+// إضافة interceptor للتعامل مع الأخطاء
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('access_token');
-      localStorage.removeItem('user');
-      window.location.href = '/login';
+      // إزالة token منتهي الصلاحية
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('user')
+      // إعادة توجيه لصفحة تسجيل الدخول
+      window.location.href = '/login'
     }
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
-// تصدير apiClient فقط
-export default apiClient;
+export default apiClient

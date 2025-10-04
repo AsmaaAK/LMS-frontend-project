@@ -1,0 +1,133 @@
+
+{
+  "app": {
+    "name": "نظام إدارة التعلم",
+    "description": "منصة التعلم الإلكتروني"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "name": "الاسم",
+    "remember_me": "تذكرني",
+    "forgot_password": "نسيت كلمة المرور؟",
+    "no_account": "ليس لديك حساب؟",
+    "has_account": "لديك حساب بالفعل؟",
+    "sign_up": "إنشاء حساب",
+    "sign_in": "تسجيل الدخول"
+  },
+  "login": {
+    "sign_in": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "signing_in": "جاري تسجيل الدخول...",
+    "create_account": "إنشاء حساب جديد",
+    "invalid_credentials": "بيانات الدخول غير صحيحة",
+    "login_failed": "فشل تسجيل الدخول"
+  },
+  "signup": {
+    "create_account": "إنشاء حساب",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "role": "الدور",
+    "select_role": "اختر دورك",
+    "creating_account": "جاري إنشاء الحساب...",
+    "already_have_account": "لديك حساب بالفعل؟",
+    "signup_success": "تم إنشاء الحساب بنجاح",
+    "server_error": "خطأ في الخادم",
+    "network_error": "خطأ في الشبكة",
+    "signup_failed": "فشل إنشاء الحساب"
+  },
+  "roles": {
+    "student": "طالب",
+    "teacher": "معلم",
+    "admin": "مدير",
+    "manager": "مشرف",
+    "your_role": "دورك"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "courses": "الكورسات",
+    "my_courses": "كورساتي",
+    "assignments": "الواجبات",
+    "grades": "الدرجات",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات",
+    "analytics": "التقارير",
+    "users": "المستخدمين",
+    "actions": "الإجراءات",
+    "manage_users": "إدارة المستخدمين",
+    "manage_courses": "إدارة الكورسات",
+    "view_courses": "عرض الكورسات",
+    "manage_assignments": "إدارة الواجبات",
+    "my_assignments": "واجباتي"
+  },
+  "course": {
+    "title": "العنوان",
+    "description": "الوصف",
+    "category": "التصنيف",
+    "level": "المستوى",
+    "price": "السعر",
+    "free": "مجاني",
+    "published": "منشور",
+    "create_course": "إنشاء كورس",
+    "edit_course": "تعديل الكورس",
+    "enroll": "التسجيل",
+    "view": "عرض",
+    "progress": "التقدم",
+    "completed": "مكتمل"
+  },
+  "assignment": {
+    "title": "العنوان",
+    "description": "الوصف",
+    "deadline": "موعد التسليم",
+    "max_score": "الدرجة الكاملة",
+    "submit": "تسليم",
+    "submitted": "مسلم",
+    "graded": "مصحح",
+    "pending": "معلق",
+    "overdue": "منتهي"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "create": "إنشاء",
+    "update": "تحديث",
+    "search": "بحث",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجاح",
+    "warning": "تحذير",
+    "info": "معلومات",
+    "welcome": "مرحباً بك في"
+  },
+  "demo": {
+    "description": "عرض تجريبي لدعم اللغات والوضع الليلي",
+    "language_support": "دعم اللغات",
+    "language_description": "يدعم الموقع اللغتين العربية والإنجليزية مع إمكانية التبديل بينهما",
+    "current_language": "اللغة الحالية",
+    "dark_mode": "الوضع الليلي",
+    "dark_mode_description": "يمكنك التبديل بين الوضع الفاتح والوضع الليلي",
+    "current_theme": "الوضع الحالي",
+    "rtl_support": "دعم RTL",
+    "rtl_description": "دعم كامل للاتجاه من اليمين إلى اليسار للغة العربية",
+    "text_direction": "اتجاه النص",
+    "sample_content": "محتوى تجريبي",
+    "sample_form": "نموذج تجريبي",
+    "sample_list": "قائمة تجريبية",
+    "light": "فاتح",
+    "dark": "ليلي"
+  },
+  "dashboard": {
+    "user_info": "معلومات المستخدم",
+    "available_actions": "الإجراءات المتاحة"
+  }
+}

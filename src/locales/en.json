@@ -1,0 +1,132 @@
+{
+  "app": {
+    "name": "Learning Management System",
+    "description": "Online learning platform"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "name": "Name",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot your password?",
+    "no_account": "Don't have an account?",
+    "has_account": "Already have an account?",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in"
+  },
+  "login": {
+    "sign_in": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "signing_in": "Signing in...",
+    "create_account": "Create new account",
+    "invalid_credentials": "Invalid credentials",
+    "login_failed": "Login failed"
+  },
+  "signup": {
+    "create_account": "Create Account",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "role": "Role",
+    "select_role": "Select your role",
+    "creating_account": "Creating account...",
+    "already_have_account": "Already have an account?",
+    "signup_success": "Account created successfully",
+    "server_error": "Server error",
+    "network_error": "Network error",
+    "signup_failed": "Signup failed"
+  },
+  "roles": {
+    "student": "Student",
+    "teacher": "Teacher",
+    "admin": "Administrator",
+    "manager": "Manager",
+    "your_role": "Your Role"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "courses": "Courses",
+    "my_courses": "My Courses",
+    "assignments": "Assignments",
+    "grades": "Grades",
+    "profile": "Profile",
+    "settings": "Settings",
+    "analytics": "Analytics",
+    "users": "Users",
+    "actions": "Actions",
+    "manage_users": "Manage Users",
+    "manage_courses": "Manage Courses",
+    "view_courses": "View Courses",
+    "manage_assignments": "Manage Assignments",
+    "my_assignments": "My Assignments"
+  },
+  "course": {
+    "title": "Title",
+    "description": "Description",
+    "category": "Category",
+    "level": "Level",
+    "price": "Price",
+    "free": "Free",
+    "published": "Published",
+    "create_course": "Create Course",
+    "edit_course": "Edit Course",
+    "enroll": "Enroll",
+    "view": "View",
+    "progress": "Progress",
+    "completed": "Completed"
+  },
+  "assignment": {
+    "title": "Title",
+    "description": "Description",
+    "deadline": "Deadline",
+    "max_score": "Max Score",
+    "submit": "Submit",
+    "submitted": "Submitted",
+    "graded": "Graded",
+    "pending": "Pending",
+    "overdue": "Overdue"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "welcome": "Welcome to"
+  },
+  "demo": {
+    "description": "Demo showcase for language support and dark mode",
+    "language_support": "Language Support",
+    "language_description": "The site supports both Arabic and English with the ability to switch between them",
+    "current_language": "Current Language",
+    "dark_mode": "Dark Mode",
+    "dark_mode_description": "You can switch between light and dark themes",
+    "current_theme": "Current Theme",
+    "rtl_support": "RTL Support",
+    "rtl_description": "Full support for right-to-left text direction for Arabic",
+    "text_direction": "Text Direction",
+    "sample_content": "Sample Content",
+    "sample_form": "Sample Form",
+    "sample_list": "Sample List",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "dashboard": {
+    "user_info": "User Information",
+    "available_actions": "Available Actions"
+  }
+}

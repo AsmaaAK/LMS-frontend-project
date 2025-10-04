@@ -1,45 +1,35 @@
 <template>
-  <div>
+  <div class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
     <router-view />
-  
-    <!-- للتصحيح فقط: عرض المسارات المتاحة -->
-    <div v-if="false" class="debug-routes">
-      <h3>المسارات المتاحة:</h3>
-      <ul>
-        <li v-for="route in $router.getRoutes()" :key="route.path">
-           {{ route.path }} - {{ route.name }}
-        </li>
-      </ul>
-    </div>
   </div>
 </template>
 
-<script>
-import { ref, onMounted } from 'vue';
+<script setup>
+import { onMounted } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import { useThemeStore } from '@/stores/theme'
+import { useLocalizationStore } from '@/stores/localization'
 
-export default {
-  name: 'App',
-  setup() {
-    const isDarkMode = ref(false);
+const authStore = useAuthStore()
+const themeStore = useThemeStore()
+const localizationStore = useLocalizationStore()
 
-    onMounted(() => {
-      // التحقق من إعدادات النظام أو التخزين المحلي لوضع الظلام
-      const savedTheme = localStorage.getItem('theme');
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
-      isDarkMode.value = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
-      
-      // تحديث class في html element
-      if (isDarkMode.value) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    });
-
-    return {
-      isDarkMode
-    };
-  }
-};
+onMounted(async () => {
+ 
+  localizationStore.loadLocale()
+  
+ 
+  themeStore.loadTheme()
+  
+  // ثم التحقق من المصادقة
+   await authStore.checkAuth()
+  
+   console.log('✅ التطبيق جاهز:', {
+     isAuthenticated: authStore.isAuthenticated,
+     user: authStore.user,
+     role: authStore.currentRole,
+     locale: localizationStore.currentLocale,
+     theme: themeStore.currentTheme
+   })
+})
 </script>
