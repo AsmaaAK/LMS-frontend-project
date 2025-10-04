@@ -1,16 +1,34 @@
-# vue-project
+# 🖥️ Learning Management System (LMS) — Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+## Overview
+The **Frontend** of the Learning Management System (LMS) is built using **Vue.js 3** and **Tailwind CSS v4**, providing a modern and interactive experience for students, instructors, and administrators.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Technologies Used
+- **Vue.js 3**
+- **Tailwind CSS v4**
+- **Vue Router**
+- **Vue I18n**
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+##  Features
+- Multilingual support (**Arabic & English**)
+- Light / Dark theme mode
+- Interactive dashboard with charts
+- Dynamic data tables with sorting and search
+- Advanced search forms
+- Fully responsive design for all devices
 
-## Project Setup
+---
+
+##  Project Setup
+
+1. Extract the `lms-frontend.zip` file.
+2. Navigate to the project directory:
+   ```bash
+   cd lms-frontend
 
 ```sh
 npm install
